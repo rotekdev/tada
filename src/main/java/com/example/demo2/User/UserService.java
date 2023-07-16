@@ -8,22 +8,24 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+    private final GithubUserApiClient githubUserApiClient;
 
     @Transactional
-    public String getUser(String login) {
+    public UserResponse getUser(String login) {
         User user = userRepository.findById(login).orElse(new User(login, 0L));
         user.increment();
         userRepository.save(user);
-        return """
-                {
-                "id": "...",
-                "login": "...",
-                "name": "…",
-                "type": "...",
-                "avatarUrl": "...",
-                "createdAt": "...",
-                "calculations": "..."
-                }
-                """;
+        GithubUser githubUser = githubUserApiClient.getUser(login);
+        return toUserResponse(githubUser);
+    }
+
+    private UserResponse toUserResponse(GithubUser githubUser) {
+        return new UserResponse(githubUser.id(),
+                githubUser.login(),
+                githubUser.name(),
+                githubUser.type(),
+                githubUser.avatarUrl(),
+                githubUser.createdAt(),
+                0L);
     }
 }

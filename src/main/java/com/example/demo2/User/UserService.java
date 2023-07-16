@@ -1,5 +1,6 @@
 package com.example.demo2.User;
 
+import com.example.demo2.User.github.api.Calculator;
 import com.example.demo2.User.github.api.GithubUser;
 import com.example.demo2.User.github.api.GithubUserApiClient;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,6 @@ public class UserService {
                 githubUser.type(),
                 githubUser.avatarUrl(),
                 githubUser.createdAt(),
-                0L);
+                Calculator.calculate(githubUser));
     }
 }

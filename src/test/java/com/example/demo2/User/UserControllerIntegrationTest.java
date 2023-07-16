@@ -18,7 +18,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
 @WireMockTest(httpPort = 8080)
-class UserControllerIT {
+class UserControllerIntegrationTest {
 
     @Autowired
     private WebTestClient webTestClient;
@@ -61,7 +61,7 @@ class UserControllerIT {
                     "type": "User",
                     "avatarUrl": "https://avatars.githubusercontent.com/u/583231?v=4",
                     "createdAt": "2011-01-25T18:44:36Z",
-                    "calculations": 0
+                    "calculations": "0.01"
                 }
                 """);
 
@@ -86,7 +86,7 @@ class UserControllerIT {
                                    "type": "User",
                                    "name": "The Octocat",
                                    "public_repos": 8,
-                                   "followers": 9786,
+                                   "followers": 0,
                                    "created_at": "2011-01-25T18:44:36Z"
                                  }
                                 """)));
@@ -101,7 +101,7 @@ class UserControllerIT {
                     "type": "User",
                     "avatarUrl": "https://avatars.githubusercontent.com/u/583231?v=4",
                     "createdAt": "2011-01-25T18:44:36Z",
-                    "calculations": 0
+                    "calculations": "undefined"
                 }
                 """);
 
@@ -141,6 +141,5 @@ class UserControllerIT {
                 .willReturn(WireMock.aResponse()
                         .withStatus(httpCode)));
     }
-
 
 }

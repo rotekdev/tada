@@ -3,7 +3,9 @@ package com.example.demo2.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
@@ -16,7 +18,4 @@ public class User {
     private String login;
     private Long requestCount;
 
-    public void increment() {
-        requestCount++;
-    }
 }

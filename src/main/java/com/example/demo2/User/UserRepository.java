@@ -19,5 +19,5 @@ public interface UserRepository extends JpaRepository<User, String> {
              WHEN NOT MATCHED THEN
                 INSERT (login, request_count) VALUES (:login, 1)
             """, nativeQuery = true)
-    public void upsertIncrementCount(@Param("login") String login);
+    void upsertIncrementCount(@Param("login") String login);
 }

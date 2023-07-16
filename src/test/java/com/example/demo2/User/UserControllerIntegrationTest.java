@@ -111,7 +111,7 @@ class UserControllerIntegrationTest {
     }
 
     @Test
-    void shouldReturn500AndCountRequestWhenGithubRespondsWIth500() {
+    void shouldReturn500AndCountRequestWhenGithubRespondsWith500() {
         String givenLogin = "octocat";
         givenGithubApiRespondsWithError(givenLogin, 500);
 
@@ -123,7 +123,7 @@ class UserControllerIntegrationTest {
         then(actualUser).isPresent().get().usingRecursiveComparison().isEqualTo(expectedUser);
     }
     @Test
-    void shouldReturn404AndCountRequestWhenGithubRespondsWIth404() {
+    void shouldReturn404AndCountRequestWhenGithubRespondsWith404() {
         String givenLogin = "octocat";
         givenGithubApiRespondsWithError(givenLogin, 404);
 

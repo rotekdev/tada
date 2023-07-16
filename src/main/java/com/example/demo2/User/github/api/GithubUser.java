@@ -1,4 +1,4 @@
-package com.example.demo2.User;
+package com.example.demo2.User.github.api;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

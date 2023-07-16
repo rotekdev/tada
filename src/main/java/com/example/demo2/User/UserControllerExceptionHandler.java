@@ -1,5 +1,7 @@
 package com.example.demo2.User;
 
+import com.example.demo2.User.github.api.GithubApiException;
+import com.example.demo2.User.github.api.GithubUserNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

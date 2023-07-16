@@ -1,5 +1,7 @@
 package com.example.demo2.User;
 
+import com.example.demo2.User.github.api.GithubUser;
+import com.example.demo2.User.github.api.GithubUserApiClient;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

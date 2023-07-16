@@ -1,4 +1,4 @@
-package com.example.demo2.User;
+package com.example.demo2.User.github.api;
 
 import org.springframework.http.HttpStatus;
 
